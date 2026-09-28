@@ -14,9 +14,9 @@
 
 ## 📽️ Live Demonstration
 
-![AgentShield Lite Live Demo](assets/agentshield_demo.gif)
+![AgentShield Lite Live Demo](assets/live_demo.png)
 
-*Figure 1: AgentShield Lite live console demonstrating the defense layer in action. When Guard is ON, indirect prompt injections targeting SOC workflows are quarantined before reaching LLMs. When Guard is OFF, the unshielded agent is tricked into severity downgrades and unauthorized actions.*
+*Figure 1: AgentShield Lite live SOC analyst console displaying real-time alert triage, guard policy execution status, and the empirical multilingual benchmark results.*
 
 ---
 
@@ -191,7 +191,7 @@ flowchart TD
         PolicyGate -->|Risky Tool: block_ip| ApprovalGate["Approval Gate (Status: PENDING)"]
         PolicyGate -->|Safe Tool: lookup_ip| ExecTool["Execute Function"]
         
-        ApprovalGate -.->|Analyst Approves /alerts/{id}/approval| ExecTool
+        ApprovalGate -.->|Analyst Approves via Approval API| ExecTool
         ExecTool --> ReportNode["Report Agent\n(Executive Incident Summary)"]
         BlockTool --> ReportNode
         BlockReport --> ReportNode
@@ -237,7 +237,7 @@ sequenceDiagram
             API-->>Attacker: Response with Pending Approval Gate
             
             Note over Analyst,API: Human Analyst Investigates Incident
-            Analyst->>API: POST /alerts/{id}/approval (decision: APPROVE)
+            Analyst->>API: POST /alerts/:id/approval (decision: APPROVE)
             API->>DB: Execute tool & Log APPROVAL_RESOLVED
             API-->>Analyst: Execution Confirmed
         else Safe Tool (lookup_ip_reputation)
