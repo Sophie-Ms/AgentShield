@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  agentshield-api:
+    build: .
+    container_name: agentshield_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - AGENTSHIELD_API_KEY=agentshield-secret-key-123
+      - DATABASE_URL=postgresql+asyncpg://agentshield:shieldpass@postgres:5432/agentshield_db
+      - CHROMA_PERSIST_DIR=/app/chroma_db
+      - LLM_PROVIDER=mock
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./chroma_data:/app/chroma_db
+      - ./corpus:/app/corpus
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: agentshield_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: agentshield
+      POSTGRES_PASSWORD: shieldpass
+      POSTGRES_DB: agentshield_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agentshield -d agentshield_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

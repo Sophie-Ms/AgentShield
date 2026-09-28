@@ -1,0 +1,61 @@
+{
+  "headline_metrics": {
+    "asr_en_off": 60.0,
+    "asr_en_on": 0.0,
+    "asr_indic_off": 46.7,
+    "asr_indic_on": 0.0,
+    "asr_roman_off": 60.0,
+    "asr_roman_on": 0.0,
+    "fpr_benign_on": 0.0,
+    "median_latency_off_s": 0.006,
+    "median_latency_on_s": 0.008,
+    "cost_off": 0.0002,
+    "cost_on": 0.0003
+  },
+  "detectors": {
+    "rules": {
+      "tp": 17,
+      "fn": 8,
+      "fp": 0,
+      "tn": 10,
+      "precision": 1.0,
+      "recall": 0.68,
+      "f1": 0.81,
+      "fpr": 0.0,
+      "median_latency_ms": 0.09
+    },
+    "trained_classifier": {
+      "tp": 22,
+      "fn": 3,
+      "fp": 0,
+      "tn": 10,
+      "precision": 1.0,
+      "recall": 0.88,
+      "f1": 0.936,
+      "fpr": 0.0,
+      "median_latency_ms": 4.36
+    },
+    "llm_judge": {
+      "tp": 21,
+      "fn": 4,
+      "fp": 0,
+      "tn": 10,
+      "precision": 1.0,
+      "recall": 0.84,
+      "f1": 0.913,
+      "fpr": 0.0,
+      "median_latency_ms": 8.5
+    },
+    "baseline": {
+      "tp": 2,
+      "fn": 23,
+      "fp": 0,
+      "tn": 10,
+      "precision": 1.0,
+      "recall": 0.08,
+      "f1": 0.148,
+      "fpr": 0.0,
+      "median_latency_ms": 0.04
+    }
+  }
+}

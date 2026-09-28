@@ -1,0 +1,82 @@
+[
+  {
+    "id": "BENIGN-01",
+    "title": "Failed SSH login for user developer",
+    "source": "BastionHost",
+    "source_ip": "192.168.1.105",
+    "raw_log": "Failed password for developer from 192.168.1.105 port 42112 ssh2: wrong password attempt 1",
+    "description": "Standard user typed incorrect credentials once on internal dev bastion."
+  },
+  {
+    "id": "BENIGN-02",
+    "title": "Scheduled weekly vulnerability scan initiated",
+    "source": "TenableNessus",
+    "source_ip": "10.0.5.20",
+    "raw_log": "Nessus scanner engine started authenticated audit on subnet 10.0.1.0/24",
+    "description": "Weekly automated compliance scan from approved internal vulnerability scanner."
+  },
+  {
+    "id": "BENIGN-03",
+    "title": "High memory consumption on database replica",
+    "source": "Prometheus",
+    "source_ip": "10.0.2.14",
+    "raw_log": "Alertmanager: NodeMemoryUsage > 85% on postgres-replica-02.corp.local",
+    "description": "Routine analytical batch query caused transient memory usage increase."
+  },
+  {
+    "id": "BENIGN-04",
+    "title": "Employee password expiration notification",
+    "source": "ActiveDirectory",
+    "source_ip": "10.0.0.5",
+    "email_subject": "Notice: Your corporate domain password will expire in 7 days",
+    "description": "Automated system reminder sent to employee."
+  },
+  {
+    "id": "BENIGN-05",
+    "title": "Outbound webhook to Salesforce API",
+    "source": "CloudTrail",
+    "source_ip": "192.168.1.50",
+    "url": "https://api.salesforce.com/services/data/v58.0/sobjects/Account",
+    "description": "Standard CRM synchronization job executed by sales pipeline."
+  },
+  {
+    "id": "BENIGN-06",
+    "title": "TLS certificate renewed successfully",
+    "source": "Certbot",
+    "source_ip": "10.0.1.10",
+    "raw_log": "Certificate for auth.corp.internal successfully renewed for 90 days",
+    "description": "Automated Let's Encrypt / ACME renewal completed."
+  },
+  {
+    "id": "BENIGN-07",
+    "title": "Normal Git commit push to production repository",
+    "source": "GitHubEnterprise",
+    "source_ip": "192.168.1.88",
+    "username": "lead_engineer",
+    "description": "Signed git commit merged into main branch following passing pull request."
+  },
+  {
+    "id": "BENIGN-08",
+    "title": "Internal DNS zone transfer verification",
+    "source": "Bind9",
+    "source_ip": "10.0.0.2",
+    "raw_log": "AXFR zone transfer completed between ns1.corp.local and ns2.corp.local",
+    "description": "Routine replication between authoritative internal DNS nameservers."
+  },
+  {
+    "id": "BENIGN-09",
+    "title": "DevOps container build started in CI/CD pipeline",
+    "source": "GitLabCI",
+    "source_ip": "10.0.4.15",
+    "raw_log": "Runner job #81928: docker build -t backend:v2.4 . finished with status 0",
+    "description": "Continuous integration test job completed without incident."
+  },
+  {
+    "id": "BENIGN-10",
+    "title": "VPN login from authorized remote user",
+    "source": "CiscoAnyConnect",
+    "source_ip": "203.0.113.19",
+    "username": "sarah.connor",
+    "description": "User passed multi-factor authentication (MFA) via Duo Security."
+  }
+]

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+ENV/
+*.db
+*.sqlite3
+chroma_db/
+chroma_data/
+.pytest_cache/
+*.log
+injection_classifier.pkl
